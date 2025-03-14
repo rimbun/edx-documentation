@@ -258,10 +258,8 @@ Creating a Drag and Drop Problem
 To create a drag and drop problem, follow these steps.
 
 #. In the unit where you want to create the problem, under **Add New
-   Component** select **Advanced**.
-
-#. From the list of advanced components, select **Drag and Drop**.
-
+   Component** select **Drag and Drop**.
+   
    Studio adds the drag and drop problem to the unit.
 
 #. Select **Edit**. The **Editing** dialog box opens.
@@ -495,6 +493,6 @@ edit a drag and drop problem.
   You can develop a Python programming language module and include a custom
   Cascading Style Sheet (CSS) file for drag and drop problems in your Open edX
   site. For more information, see
-  :ref:`installation:styling_drag_and_drop_problems`.
+  :ref:`styling_drag_and_drop_problems`.
 
 .. include:: ../../../links/links.rst

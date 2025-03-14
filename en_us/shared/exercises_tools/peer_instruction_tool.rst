@@ -25,7 +25,7 @@ Assignment Overview
 *********************
 
 Assignments created with the peer instruction tool present learners with a
-multiple choice question, and then guide the learners through these stages of
+single select question, and then guide the learners through these stages of
 the exercise.
 
 #. An initial response, which includes both an answer choice and a written
@@ -83,7 +83,7 @@ for the exercise.
 After your design is complete, you use Studio to add the assignment to your
 course.
 
-.. note:: You might consider including an HTML component before the peer
+.. note:: You might consider including a Text component before the peer
  instruction component to describe the workflow that learners will experience
  in this assessment type. You might also consider including a content-specific
  discussion component after the peer instruction component to give learners an

@@ -213,6 +213,13 @@ When a certificate is generated, a record is created in the
 ``edx.certificate.created`` event. For details, see
 :ref:`certificates_generatedcertificate`.
 
+It may be important to note that it is possible for this event to be fired when
+an existing certificate record in the ``certificates_generatedcertificate``
+table is updated. For example, if a certificate was revoked from a learner due
+to them no longer passing the course, and then they earned a passing grade at a
+later time, an ``edx.certificate.created`` event will be fired again (even
+though the record for this learner already exists in the database).
+
 **History** Added 2 September 2015.
 
 **Event Source**: Server
@@ -229,7 +236,7 @@ When a certificate is generated, a record is created in the
 
    * - ``certificate_id``
      - string
-     - The ``verify.uuid`` value from the
+     - The ``verify_uuid`` value from the
        ``certificates_generatedcertificate`` table. This string appears at the
        bottom of each certificate.
    * - ``certificate_url``
@@ -243,23 +250,66 @@ When a certificate is generated, a record is created in the
      - The course enrollment mode associated with this certificate.
    * - ``generation_mode``
      - string
-     - Indicates whether this certificate was generated for all learners in a
-       course by a batch command, or whether a learner generated her own
+     - Indicates whether this certificate was generated automatically for a
+       learner in a course or whether a learner generated their own
        certificate. Possible values are "batch" and "self".
    * - ``user_id``
      - number
      - The numeric ID of the learner who earned this certificate.
 
 =================================
+``edx.certificate.revoked``
+=================================
+
+There may be times where it is appropriate to remove a learner's access to their
+course certificate. Some (non-exhaustive) examples include:
+* The learner is no longer passing the course.
+* The course team has requested the learner be added to the certificate
+invalidation list.
+* The learner has been flagged as suspicious during a proctored exam.
+
+**History**: Added 27 May 2021.
+
+**Event Source**: Server
+
+``event`` **Member Fields**:
+
+The ``edx.certificate.revoked`` event includes many of the same ``event``
+member fields that are described for the ``edx.certificate.created`` event.
+The following member fields serve the same purpose for
+``edx.certificate.revoked`` as they do for `edx.certificate.created`_.
+
+* ``certificate_id``
+* ``certificate_url``
+* ``course_id``
+* ``enrollment_mode``
+* ``user_id``
+
+The following additional ``event`` member field applies specifically to
+``edx.certificate.revoked`` events.
+
+.. list-table::
+   :widths: 15 15 60
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Details
+   * - ``source``
+     - string
+     - The source requesting revocation of the course certificate (e.g., the
+       Instructor Dashboard's certificate invalidation tool).
+
+=================================
 ``edx.certificate.shared``
 =================================
 
-When a learner shares the URL for her certificate on a social media web site,
+When a learner shares the URL for their certificate on a social media web site,
 the server emits an ``edx.certificate.shared`` event.
 
 **History**: Added 2 September 2015.
 
-**Event Source**: Browser
+**Event Source**: Server
 
 ``event`` **Member Fields**:
 
@@ -293,7 +343,7 @@ The following additional ``event`` member field applies specifically to
 ``edx.certificate.evidence_visited``
 ======================================
 
-When a learner shares her certificates on social network sites such as
+When a learner shares their certificates on social network sites such as
 LinkedIn, and the link back to the certificate is followed by some visitor to
 that social network site, the server emits an
 ``edx.certificate.evidence_visited`` event.
@@ -336,6 +386,58 @@ The following additional ``event`` member fields apply specifically to
      - The URL of the web site where the certificate evidence link was
        selected. This URL is the same as the URI in the ``context.referer``
        field. For details, see :ref:`referer_field`.
+
+=======================================
+``edx.certificate.generation.enabled``
+=======================================
+
+This event is fired by the server when the self-generated (or student-generated)
+certificates feature is enabled for a course run.
+
+**History**: Added 14 July 2015
+
+**Event Source**: Server
+
+``event`` **Member Fields**:
+
+.. list-table::
+   :widths: 15 15 60
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Details
+
+   * - ``course_id``
+     - string
+     - The course for which the self-generated certificates feature is being
+       enabled for.
+
+========================================
+``edx.certificate.generation.disabled``
+========================================
+
+This event is fired by the server when the self-generated (or student-generated)
+certificates feature is disabled for a course run.
+
+**History**: Added 14 July 2015
+
+**Event Source**: Server
+
+``event`` **Member Fields**:
+
+.. list-table::
+   :widths: 15 15 60
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Details
+
+   * - ``course_id``
+     - string
+     - The course for which the self-generated certificates feature is being
+       disabled for.
 
 
 
@@ -613,7 +715,7 @@ delivered for the first time.
        To identify a component consistently within a course, you can use
        either ``usage_key`` or ``original_usage_key`` as a consistent
        identifier. To identify components across courses, use
-       ``orignal_usage_key``.
+       ``original_usage_key``.
 
 =====================================================
 ``edx.librarycontentblock.content.removed``
@@ -688,11 +790,72 @@ This section includes descriptions of the following events.
   :depth: 1
 
 =============================================================================
+``edx.ui.lms.jump_nav.selected``
+=============================================================================
+The browser emits this event when a user selects a hyperlink using the breadcrumb jump navigation menus.
+
+**History**: Added September 20 2021.
+
+**Component**: Sequence
+
+**Event Source**: Browser
+
+``event`` **Member Fields**:
+
+The ``edx.ui.lms.link_clicked`` event includes both a ``name`` field
+and an ``event_type`` field. For more information about these common fields,
+see :ref:`common`.
+
+``event`` **Member Fields**:
+
+.. list-table::
+   :widths: 15 15 60
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Details
+
+   * - ``target_name``
+     - string
+     - The string title of the intended destination of the navigation.
+
+   * - ``id``
+     - string
+     - the block id of the intended destination of the navigation.
+
+   * - ``current_id``
+     - string
+     - The block id of the current unit block before navigating away.
+
+   * - ``widget_placement``
+     - string
+     - The location on the browser the event originates from.
+
+=============================================================================
+Example ``edx.ui.lms.jump_nav.selected`` Event
+=============================================================================
+
+The following example shows the relevant fields of the event that is emitted
+when a user selects any hypertext link from the course breadcrumb content.
+
+.. code-block:: json
+
+ {
+     "name": "edx.ui.lms.jump_nav.selected",
+     "event": {
+         "target_name": "Part 3: Getting Social"
+         "id": "block-v1:edX+DemoX+Demo_Course+type@sequential+block@simulations/block-v1:edX+DemoX+Demo_Course+type@vertical+block@d0d804e8863c4a95a659c04d8a2b2bc0",
+         "current_id": "block-v1:edX+DemoX+Demo_Course+type@sequential+block@basic_questions/block-v1:edX+DemoX+Demo_Course+type@vertical+block@2152d4a4aadc4cb0af5256394a3d1fc7",
+         "widget_placement": "breadcrumb"
+         }
+ }
+
+=============================================================================
 ``edx.ui.lms.link_clicked``
 =============================================================================
 
-The browser emits this event when a user selects any hypertext link from the
-course content.
+The browser emits this event when a user selects any hypertext link from the course content.
 
 **History**: Added May 5 2016.
 
@@ -2135,7 +2298,7 @@ Example ``edx.course.enrollment.deactivated`` Event
         "accept_language": "en-US,en;q=0.8",
         "time": "2014-01-26T00:28:28.388782+00:00",
         "agent": "Mozilla\/5.0 (Windows NT 6.1; WOW64; Trident\/7.0; rv:11.0) like Gecko",
-        "page": null
+        "page": null,
         "host": "courses.edx.org",
         "session": "a14j3ifhskngw0gfgn230g",
         "context": {
@@ -2305,7 +2468,7 @@ adds a note in the course.
      - Details
    * - ``component_usage_id``
      - string
-     - The unique identifier for the HTML component where the learner added
+     - The unique identifier for the Text component where the learner added
        the note. For more information about the components that a course
        includes, see :ref:`partnercoursestaff:Developing Course Components`.
    * - ``highlighted_content``
@@ -2450,7 +2613,7 @@ searches notes on the **Notes** page.
 =====================================================
 
 The browser emits ``edx.course.student_notes.used_unit_link`` events when a
-learner uses a note link on the **Notes** page to go to the HTML component that
+learner uses a note link on the **Notes** page to go to the Text component that
 contains that note.
 
 **History**: Added 16 March 2016.
@@ -2677,8 +2840,8 @@ peer's response.
 ``openassessmentblock.self_assess``
 =====================================================
 
-The server emits this event when a learner submits a self-assessment of her own
-response.
+The server emits this event when a learner submits a self-assessment of their
+own response.
 
 **History**: Added 3 April 2014.
 
@@ -3380,7 +3543,7 @@ by other XBlocks, such as :ref:`open response assessments<ora2>`,
 different events.
 
 For information about designing problems to include hints, feedback, or
-both, see :ref:`partnercoursestaff:Adding Feedback and Hints to a Problem` in
+both, see the :ref:`feedback<Adding Feedback>` and :ref:`hint<Hints>` sections in
 the *Building and Running an edX Course* guide.
 
 ===============================================
@@ -3458,7 +3621,7 @@ field.
    * - ``choice_all``
      - array
      - For problems that have a set of possible answers defined, such as
-       checkbox problems, lists all of the answer choices.
+       multi-select problems, lists all of the answer choices.
    * - ``correctness``
      - Boolean
      - 'True' if the ``student_answer`` response is correct. 'False' if the
@@ -3470,7 +3633,7 @@ field.
    * - ``hints``
      - array
      - Contains a ``text`` member field with the feedback string that was
-       displayed to the user. For some problem types, such as checkbox
+       displayed to the user. For some problem types, such as multi-select
        problems, feedback can be provided for more than one answer at a time,
        including both correct and incorrect answers. A separate ``text`` member
        field is included for each feedback message that was displayed.
@@ -3489,18 +3652,18 @@ field.
    * - ``student_answer``
      - array
      - The answer value selected or supplied by the user. For problem types
-       that accept multiple answers, such as checkbox problems, every response,
+       that accept multiple answers, such as multi-select problems, every response,
        including both selected and unselected options, is included.
    * - ``trigger_type``
      - string
      - Identifies the type of feedback elicited by the ``student_answer``
-       response. For checkbox problems only, course teams can design 'compound'
+       response. For multi-select problems only, course teams can design 'compound'
        feedback that is provided when a user's response matches an exact set of
        correct and incorrect selections across all of the available choices.
        All other types of feedback are identified as 'single'.
 
-       For more information, see :ref:`partnercoursestaff:Adding Feedback and
-       Hints to a Problem` in the *Building and Running an edX Course* guide.
+       For more information, see the :ref:`feedback<Adding Feedback>` and :ref:`hint<Hints>`
+       sections in the *Building and Running an edX Course* guide.
 
 =================
 ``problem_check``
@@ -5259,11 +5422,11 @@ exploration.
 Microsoft Office Mix Events
 ===========================
 
-Course teams could formerly use Office Mix to turn Microsoft PowerPoint 
-presentations in to interactive online lessons, called mixes. They can 
-then use the Office Mix tool in Studio to include mixes in a course. 
-Microsoft has discontinued Office Mix, so this tool is no longer available. 
-When users interacted with the Office Mix player in the LMS, the server would 
+Course teams could formerly use Office Mix to turn Microsoft PowerPoint
+presentations in to interactive online lessons, called mixes. They can
+then use the Office Mix tool in Studio to include mixes in a course.
+Microsoft has discontinued Office Mix, so this tool is no longer available.
+When users interacted with the Office Mix player in the LMS, the server would
 emit the following events.
 
 .. contents::
@@ -6492,7 +6655,7 @@ this type as for :ref:`play_video`.
 
 * ``code``
 * ``id``
-* ``language``: The selected language of the current video trascript.
+* ``language``: The selected language of the current video transcript.
 
 ==========================================================
 ``video_show_cc_menu``/``edx.video.language_menu.shown``

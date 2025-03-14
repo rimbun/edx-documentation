@@ -1,5 +1,3 @@
-
-
 .. Include this file in any file that includes a non-doc link.
 
 .. EdX Links
@@ -22,7 +20,7 @@
 
 .. _Review Answers to Ungraded Problems: http://edx.readthedocs.io/projects/edx-insights/en/latest/performance/Performance_Ungraded.html#review-answers-to-ungraded-problems
 
-.. _Open edX Analytics wiki: http://edx-wiki.atlassian.net/wiki/display/OA/Open+edX+Analytics+Home
+.. _Open edX Analytics wiki: https://openedx.atlassian.net/wiki/spaces/COMM/pages/979927117/Open+edX+Analytics
 
 .. _openedx-analytics: http://groups.google.com/forum/#!forum/openedx-analytics
 
@@ -56,6 +54,10 @@
 
 .. _La Tierra Centroamericana: https://studio.edge.edx.org/course/edX/GEO101/2014_T1>
 
+.. _edX Trademark Policy: https://www.edx.org/trademarks
+
+.. _Edx Proxy Instructions: https://openedx.atlassian.net/wiki/spaces/OpenOPS/pages/60228028/EdX+Proxy+Instructions
+
 .. _edX Edge: http://edge.edx.org
 
 .. _Studio: https://studio.edge.edx.org
@@ -80,36 +82,47 @@
 
 .. _edX pattern library: http://ux.edx.org/design_elements/colors/
 
-.. _Open edX Named Releases page: https://edx.readthedocs.io/projects/edx-developer-docs/en/latest/named_releases.html
+.. _Open edX Named Releases page: https://docs.openedx.org/en/latest/community/release_notes/latest.html
 
+.. _Open edX Releases Homepage: https://openedx.atlassian.net/wiki/spaces/OEPM/pages/4191191044/Open+edX+Releases+Homepage
+
+.. _Open edX Release Schedule: https://openedx.atlassian.net/wiki/spaces/COMM/pages/3613392957/Open+edX+Release+Schedule
+
+.. _Open edX Installation: https://edx.readthedocs.io/projects/edx-installing-configuring-and-running/en/latest/installation/
+
+.. _Native Installation to Tutor forum post: https://discuss.openedx.org/t/upgrade-from-native-to-tutor/9252
+
+.. _this second Native to Tutor post: https://discuss.overhang.io/t/migrating-from-native-install-to-tutor-juniper-tutor-10-x/1533
+
+.. _Open edX Forums: https://discuss.openedx.org
 
 .. GitHub Links
 
 .. _GitHub: http://github.com
 
-.. _Contribute to edX Documentation: https://github.com/edx/edx-documentation#contribute-to-edx-documentation
+.. _Contribute to edX Documentation: https://github.com/openedx/edx-documentation#contribute-to-edx-documentation
 
-.. _edx-documentation/shared: https://github.com/edx/edx-documentation/blob/master/shared/conf.py
+.. _edx-documentation/shared: https://github.com/openedx/edx-documentation/blob/master/shared/conf.py
 
-.. _edx-analytics-configuration: https://github.com/edx/edx-analytics-configuration
+.. _edx-analytics-configuration: https://github.com/openedx/edx-analytics-configuration
 
-.. _edx-documentation: https://github.com/edx/edx-documentation
+.. _edx-documentation: https://github.com/openedx/edx-documentation
 
-.. _edx-tools wiki: https://github.com/edx/edx-tools/wiki
+.. _edx-tools wiki: https://github.com/openedx/edx-tools/wiki
 
 .. _custom_form_app: https://github.com/open-craft/custom-form-app
 
-.. _EdX Search: https://github.com/edx/edx-search/
+.. _EdX Search: https://github.com/openedx/edx-search/
 
 .. _GitHub Help: https://help.github.com/articles/set-up-git
 
-.. _edx-documentation: https://github.com/edx/edx-documentation
+.. _edx-documentation: https://github.com/openedx/edx-documentation
 
-.. _password_policy_validators: https://github.com/edx/edx-platform/blob/master/common/djangoapps/util/password_policy_validators.py
+.. _password_policy_validators: https://github.com/openedx/edx-platform/blob/master/common/djangoapps/util/password_policy_validators.py
 
 .. _PyEnv: https://github.com/yyuu/pyenv
 
-.. _example CSS file for drag and drop problems: https://github.com/edx-solutions/xblock-drag-and-drop-v2/blob/master/drag_and_drop_v2/public/themes/apros.css
+.. _example CSS file for drag and drop problems: https://github.com/openedx/xblock-drag-and-drop-v2/blob/master/drag_and_drop_v2/public/themes/apros.css
 
 .. _VirtualEnv: http://www.virtualenv.org/en/latest/
 
@@ -119,55 +132,55 @@
 
 .. _VirtualEnvWrapper: http://virtualenvwrapper.readthedocs.io/en/latest
 
-.. _XBlock SDK: https://github.com/edx/xblock-sdk
+.. _XBlock SDK: https://github.com/openedx/xblock-sdk
 
-.. _thumbs.py: https://github.com/edx/xblock-sdk/blob/master/sample_xblocks/thumbs/thumbs.py
+.. _thumbs.py: https://github.com/openedx/xblock-sdk/blob/master/sample_xblocks/thumbs/thumbs.py
 
-.. _thumbs.js: https://github.com/edx/xblock-sdk/blob/master/sample_xblocks/thumbs/static/js/src/thumbs.js
+.. _thumbs.js: https://github.com/openedx/xblock-sdk/blob/master/sample_xblocks/thumbs/static/js/src/thumbs.js
 
-.. _Thumbs XBlock:  https://github.com/edx/xblock-sdk/tree/master/sample_xblocks/thumbs
+.. _Thumbs XBlock:  https://github.com/openedx/xblock-sdk/tree/master/sample_xblocks/thumbs
 
-.. _1.js: https://github.com/edx/xblock-sdk/blob/master/workbench/static/workbench/js/runtime/1.js
+.. _1.js: https://github.com/openedx/xblock-sdk/blob/master/workbench/static/workbench/js/runtime/1.js
 
-.. _Problem XBlock: https://github.com/edx/xblock-sdk/blob/master/sample_xblocks/basic/problem.py
+.. _Problem XBlock: https://github.com/openedx/xblock-sdk/blob/master/sample_xblocks/basic/problem.py
 
-.. _Content XBlocks: https://github.com/edx/xblock-sdk/blob/master/sample_xblocks/basic/content.py
+.. _Content XBlocks: https://github.com/openedx/xblock-sdk/blob/master/sample_xblocks/basic/content.py
 
-.. _Slider XBlock: https://github.com/edx/xblock-sdk/blob/master/sample_xblocks/basic/slider.py
+.. _Slider XBlock: https://github.com/openedx/xblock-sdk/blob/master/sample_xblocks/basic/slider.py
 
-.. _Structure XBlocks: https://github.com/edx/xblock-sdk/blob/master/sample_xblocks/basic/structure.py
+.. _Structure XBlocks: https://github.com/openedx/xblock-sdk/blob/master/sample_xblocks/basic/structure.py
 
-.. _View Counter XBlock: https://github.com/edx/xblock-sdk/blob/master/sample_xblocks/basic/view_counter.py
+.. _View Counter XBlock: https://github.com/openedx/xblock-sdk/blob/master/sample_xblocks/basic/view_counter.py
 
-.. _thumbs.html: https://github.com/edx/xblock-sdk/blob/master/sample_xblocks/thumbs/static/html/thumbs.html
+.. _thumbs.html: https://github.com/openedx/xblock-sdk/blob/master/sample_xblocks/thumbs/static/html/thumbs.html
 
-.. _thumbs.css: https://github.com/edx/xblock-sdk/blob/master/sample_xblocks/thumbs/static/css/thumbs.css
+.. _thumbs.css: https://github.com/openedx/xblock-sdk/blob/master/sample_xblocks/thumbs/static/css/thumbs.css
 
-.. _requirements/edx/github.txt: https://github.com/edx/edx-platform/blob/master/requirements/edx/github.txt
+.. _requirements/edx/github.txt: https://github.com/openedx/edx-platform/blob/master/requirements/edx/github.txt
 
-.. _submission_mixin.py: https://github.com/edx/edx-ora2/blob/a4ce7bb00190d7baff60fc90fb613229565ca7ef/openassessment/xblock/submission_mixin.py
+.. _submission_mixin.py: https://github.com/openedx/edx-ora2/blob/a4ce7bb00190d7baff60fc90fb613229565ca7ef/openassessment/xblock/submission_mixin.py
 
-.. _edx-platform: https://github.com/edx/edx-platform
+.. _edx-platform: https://github.com/openedx/edx-platform
 
-.. _configuration: https://github.com/edx/configuration
+.. _configuration: https://github.com/openedx/configuration
 
-.. _The migrate.sh script: https://github.com/edx/configuration/blob/named-release/dogwood.rc/util/vagrant/migrate.sh
+.. _The migrate.sh script: https://github.com/openedx/configuration/blob/named-release/dogwood.rc/util/vagrant/migrate.sh
 
-.. _The upgrade.sh script: https://github.com/edx/configuration/blob/master/util/vagrant/upgrade.sh
+.. _The upgrade.sh script: https://github.com/openedx/configuration/blob/master/util/vagrant/upgrade.sh
 
 .. _Developing on Devstack: https://openedx.atlassian.net/wiki/display/OpenOPS/Running+Devstack
 
-.. _Getting Started on Analytics: https://github.com/edx/devstack/blob/master/docs/analytics.rst
+.. _Getting Started on Analytics: https://github.com/openedx/devstack/blob/master/docs/analytics.rst
 
 .. _forum migration described on the Open edX wiki: https://openedx.atlassian.net/wiki/display/TNL/Migrating+the+Discussion+Forums+to+Support+Teams+Discussion+Filtering
 
-.. _Google Drive XBlock: https://github.com/edx-solutions/xblock-google-drive
+.. _Google Drive XBlock: https://github.com/openedx/xblock-google-drive
 
-.. _init file: https://github.com/edx/edx-ora2/blob/a4ce7bb00190d7baff60fc90fb613229565ca7ef/openassessment/fileupload/backends/__init__.py
+.. _init file: https://github.com/openedx/edx-ora2/blob/a4ce7bb00190d7baff60fc90fb613229565ca7ef/openassessment/fileupload/backends/__init__.py
 
-.. _base.py: https://github.com/edx/edx-ora2/blob/a4ce7bb00190d7baff60fc90fb613229565ca7ef/openassessment/fileupload/backends/base.py
+.. _base.py: https://github.com/openedx/edx-ora2/blob/a4ce7bb00190d7baff60fc90fb613229565ca7ef/openassessment/fileupload/backends/base.py
 
-.. _S3.py: https://github.com/edx/edx-ora2/blob/a4ce7bb00190d7baff60fc90fb613229565ca7ef/openassessment/fileupload/backends/s3.py
+.. _S3.py: https://github.com/openedx/edx-ora2/blob/a4ce7bb00190d7baff60fc90fb613229565ca7ef/openassessment/fileupload/backends/s3.py
 
 .. _edX Analytics Installation: https://openedx.atlassian.net/wiki/display/OpenOPS/edX+Analytics+Installation
 
@@ -177,35 +190,37 @@
 
 .. _edx-ui-toolkit GitHub repository: https://github.com/edx/edx-ui-toolkit
 
+.. _Re install Open edX in Ubuntu 12.04: https://github.com/openedx/configuration/wiki/Re-install-Open-edX-in-Ubuntu-12.04
+
 .. EDX VMs
 
-.. _iOS: http://github.com/edx/edx-app-ios
-.. _Android: http://github.com/edx/edx-app-android
+.. _iOS: http://github.com/openedx/edx-app-ios
+.. _Android: http://github.com/openedx/edx-app-android
 
-.. _edX Managing the Full Stack: https://github.com/edx/configuration/wiki/edX-Managing-the-Full-Stack
+.. _edX Managing the Full Stack: https://github.com/openedx/configuration/wiki/edX-Managing-the-Full-Stack
 
-.. _OEXPushNotificationManager.m: https://github.com/edx/edx-app-ios/blob/master/Source/OEXPushNotificationManager.m
+.. _OEXPushNotificationManager.m: https://github.com/openedx/edx-app-ios/blob/master/Source/OEXPushNotificationManager.m
 
-.. _OEXParsePushProvider.m: https://github.com/edx/edx-app-ios/blob/master/Source/OEXParsePushProvider.m
+.. _OEXParsePushProvider.m: https://github.com/openedx/edx-app-ios/blob/master/Source/OEXParsePushProvider.m
 
-.. _OEXPushProvider.h: https://github.com/edx/edx-app-ios/blob/master/Source/OEXPushProvider.h
+.. _OEXPushProvider.h: https://github.com/openedx/edx-app-ios/blob/master/Source/OEXPushProvider.h
 
-.. _AndroidManifest.xml: https://github.com/edx/edx-app-android/blob/master/VideoLocker/AndroidManifest.xml#L270
+.. _AndroidManifest.xml: https://github.com/openedx/edx-app-android/blob/master/VideoLocker/AndroidManifest.xml#L270
 
-.. _EdxParsePushBroadcastReceiver.java: https://github.com/edx/edx-app-android/blob/master/VideoLocker/src/main/java/org/edx/mobile/module/notification/EdxParsePushBroadcastReceiver.java
+.. _EdxParsePushBroadcastReceiver.java: https://github.com/openedx/edx-app-android/blob/master/VideoLocker/src/main/java/org/edx/mobile/module/notification/EdxParsePushBroadcastReceiver.java
 
-.. _UserNotificationManager.java: https://github.com/edx/edx-app-android/blob/master/VideoLocker/src/main/java/org/edx/mobile/module/notification/UserNotificationManager.java
+.. _UserNotificationManager.java: https://github.com/openedx/edx-app-android/blob/master/VideoLocker/src/main/java/org/edx/mobile/module/notification/UserNotificationManager.java
 
-.. _ParseNotificationDelegate.java: https://github.com/edx/edx-app-android/blob/master/VideoLocker/src/main/java/org/edx/mobile/module/notification/ParseNotificationDelegate.java
+.. _ParseNotificationDelegate.java: https://github.com/openedx/edx-app-android/blob/master/VideoLocker/src/main/java/org/edx/mobile/module/notification/ParseNotificationDelegate.java
 
 .. _Python SAML Toolkit: https://github.com/onelogin/python-saml
 
 
-.. _Manual Testing: https://github.com/edx/edx-platform/tree/master/common/test/data/manual-testing-complete
+.. _Manual Testing: https://github.com/openedx/edx-platform/tree/master/common/test/data/manual-testing-complete
 
-.. _manual-testing-complete: https://github.com/edx/edx-platform/tree/master/common/test/data/manual-testing-complete
+.. _manual-testing-complete: https://github.com/openedx/edx-platform/tree/master/common/test/data/manual-testing-complete
 
-.. _2014.xml: https://github.com/edx/edx-platform/blob/master/common/test/data/manual-testing-complete/course/2014.xml
+.. _2014.xml: https://github.com/openedx/edx-platform/blob/master/common/test/data/manual-testing-complete/course/2014.xml
 
 .. _edX-Insider: https://github.com/pmitros/edX-Insider
 
@@ -215,11 +230,11 @@
 
 .. _course.xml: https://github.com/pmitros/edX-Insider/blob/master/Ongoing/course.xml
 
-.. _edX Demo Course GitHub: https://github.com/edx/edx-demo-course
+.. _edX Demo Course GitHub: https://github.com/openedx/edx-demo-course
 
 .. EDX WIKI LINKS
 
-.. _Open edX Releases Wiki page: https://openedx.atlassian.net/wiki/spaces/OpenOPS/pages/11108700/Open+edX+Releases
+.. _Open edX Releases Wiki page: https://openedx.atlassian.net/wiki/spaces/OEPM/pages/4191191044/Open+edX+Releases+Homepage
 
 .. _Release Pages: https://openedx.atlassian.net/wiki/pages/viewpage.action?pageId=12550314
 
@@ -227,18 +242,22 @@
 
 .. _Open edX Native 12.04 Installation: https://openedx.atlassian.net/wiki/x/bgCXAw
 
-.. _Open edX Native Installation: https://openedx.atlassian.net/wiki/x/g4G6C
+.. _Legacy Open edX Native Installation: https://openedx.atlassian.net/wiki/x/g4G6C
 
-.. _Open edX Koa Installation: https://openedx.atlassian.net/l/c/L4sgQNbj
+.. _Koa Open edX Native Installation: https://openedx.atlassian.net/wiki/x/lIJjdQ
 
-.. _Open edX Lilac Installation: https://openedx.atlassian.net/l/c/L4sgQNbj
+.. _Open edX Feature Flags: https://docs.openedx.org/projects/edx-platform/en/latest/references/featuretoggles.html
 
-.. _edX Feature Flags: https://openedx.atlassian.net/wiki/spaces/OpenDev/pages/34734726/edX+Feature+Flags
+.. _edx-platform documentation: https://docs.openedx.org/projects/edx-platform/en/latest/index.html
+
+.. _Managing Open edX Tips and Tricks:  https://openedx.atlassian.net/wiki/spaces/OpenOPS/pages/60227913/Managing+Open+edX+Tips+and+Tricks
+
+.. _How to Override Default Configuration Passwords and Verify Exposed Services: https://openedx.atlassian.net/wiki/spaces/OpenOPS/pages/153813109/How+to+Override+Default+Configuration+Passwords+and+Verify+Exposed+Services
 
 .. THIRD PARTY LINKS
 
 .. _Oscar: https://github.com/django-oscar/django-oscar
-.. _E-Commerce service: https://github.com/edx/ecommerce
+.. _E-Commerce service: https://github.com/openedx/ecommerce
 .. _Transifex: https://www.transifex.com/
 .. _configure the Transifex client: http://docs.transifex.com/client/config/
 .. _Django password validation documentation: https://docs.djangoproject.com/en/2.1/topics/auth/passwords/#module-django.contrib.auth.password_validation
@@ -246,11 +265,11 @@
 .. _django-compressor: http://django-compressor.readthedocs.io/
 .. _RequireJS: http://requirejs.org/
 .. _OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
-.. _devstack: https://github.com/edx/devstack
+.. _devstack: https://github.com/openedx/devstack
 .. _Testing in Django: https://docs.djangoproject.com/en/1.8/topics/testing/
 .. _Django sites framework: https://docs.djangoproject.com/en/1.8/ref/contrib/sites
 .. _Jasmine: http://jasmine.github.io/2.3/introduction.html
-.. _edX JavaScript Style Guide: http://edx.readthedocs.io/projects/edx-developer-guide/en/latest/style_guides/javascript_guidelines.html
+.. _edX JavaScript Style Guide: https://edx.readthedocs.io/projects/edx-developer-guide/en/latest/style_guides/javascript-guidelines.html
 .. _JSHint: http://www.jshint.com/
 .. _jscs: https://www.npmjs.org/package/jscs
 .. _Waffle: http://waffle.readthedocs.io/en/latest
@@ -297,7 +316,7 @@
 
 .. _default EC2 role for Amazon EMR: http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-iam-roles-defaultroles.html#emr-iam-roles-defaultec2
 
-.. _Default IAM Roles for Amazon EMR: http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-roles-defaultroles.html#emr-iam-roles-defaultec2
+.. _Default IAM Roles for Amazon EMR: https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-role-for-ec2.html
 
 .. _a single public subnet: http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario1.html
 
@@ -337,7 +356,7 @@
 
 .. _RabbitMQ: http://www.rabbitmq.com/
 
-.. _Download Python: https://www.python.org/download/releases/2.7/
+.. _Download Python: https://www.python.org/downloads/release/python-386/
 
 .. _YouTube Data API v3: https://developers.google.com/youtube/v3/
 
@@ -361,7 +380,7 @@
 
 .. _Vagrant documentation: http://docs.vagrantup.com/v2/
 
-.. _Ansible: http://docs.ansible.com/ansible/index.html
+.. _Ansible: https://docs.ansible.com/
 
 .. _Font Awesome: http://fortawesome.github.io/Font-Awesome/icons/
 
@@ -377,8 +396,19 @@
 
 .. _IMS LTI 1.1 Consumer Launch: http://www.imsglobal.org/developers/LTI/test/v1p1/lms.php
 
-.. _IMS Global Learning Tools Interoperability: http://www.imsglobal.org/LTI/v1p1p1/ltiIMGv1p1p1.html
+.. _LTI 1.1: https://www.imsglobal.org/LTI/v1p1p1/ltiIMGv1p1p1.html
 
+.. _LTI 1.3: https://www.imsglobal.org/spec/lti/v1p3
+
+.. _LTI Advantage: https://www.imsglobal.org/lti-advantage-overview
+
+.. _Deep Linking: https://www.imsglobal.org/spec/lti-dl/v2p0
+
+.. _Assignments and Grades services: https://www.imsglobal.org/spec/lti-ags/v2p0
+
+.. _Names and Roles Provisioning Service: https://www.imsglobal.org/spec/lti-nrps/v2p0
+
+.. _LTI_NRPS_ACTIVE_ENROLLMENT_LIMIT setting: https://github.com/openedx/xblock-lti-consumer/blob/master/docs/decisions/0004-lti-advantage-nrps.rst#decision 
 
 .. _Issuing Badges: https://wiki.mozilla.org/Badges/Onboarding-Issuer#Issuing_Badges
 
@@ -399,6 +429,8 @@
 .. _ESLint: https://openedx.atlassian.net/wiki/display/FEDX/ESLint
 
 .. _Webpack: https://webpack.js.org/
+
+.. _Tutor: https://docs.tutor.overhang.io/
 
 .. Release Notes
 
@@ -454,7 +486,7 @@
 
 .. _Django 1.8 Upgrade Release Notes: https://openedx.atlassian.net/wiki/display/TNL/Django+1.8+Upgrade+Release+Notes
 
-.. _Django 1.8 pull request: https://github.com/edx/edx-platform/pull/10401
+.. _Django 1.8 pull request: https://github.com/openedx/edx-platform/pull/10401
 
 .. _app_label: https://docs.djangoproject.com/en/1.8/ref/models/options/#app-label
 
@@ -525,7 +557,7 @@
 
 .. _eduPerson Object Class Specification: https://www.internet2.edu/media/medialibrary/2013/09/04/internet2-mace-dir-eduperson-201203.html
 
-.. _official Google instructions: https://developers.google.com/+/web/signin/#set_up_google_sign-in_for_google
+.. _official Google instructions: https://developers.google.com/identity/protocols/oauth2
 
 .. _Google Developers Console: https://console.developers.google.com/project/_/apiui/apis/library
 
@@ -539,9 +571,9 @@
 
 .. _Azure sign in: https://portal.azure.com
 
-.. _AWS template file: https://github.com/edx/edx-platform/blob/b3462e5b1c3cc45ad8673f3f12e84fa17ffa6b64/lms/envs/aws.py#L586-L596
+.. _AWS template file: https://github.com/openedx/edx-platform/blob/b3462e5b1c3cc45ad8673f3f12e84fa17ffa6b64/lms/envs/aws.py#L586-L596
 
-.. _random and highly secure password: https://github.com/edx/edx-platform/blob/46d69eba/common/djangoapps/third_party_auth/pipeline.py#L392-L410
+.. _random and highly secure password: https://github.com/openedx/edx-platform/blob/46d69eba/common/djangoapps/third_party_auth/pipeline.py#L392-L410
 
 .. _OAuth backends supported by python-social-auth v0.2.12: http://python-social-auth.readthedocs.io/en/latest/backends/index.html#social-backends
 
@@ -551,7 +583,7 @@
 
 .. _python-social-auth documentation: http://python-social-auth.readthedocs.io/en/latest/index.html
 
-.. _the default value in the aws.py file: https://github.com/edx/edx-platform/blob/b3462e5b1c3cc45ad8673f3f12e84fa17ffa6b64/lms/envs/aws.py#L586-L596
+.. _the default value in the aws.py file: https://github.com/openedx/edx-platform/blob/b3462e5b1c3cc45ad8673f3f12e84fa17ffa6b64/lms/envs/aws.py#L586-L596
 
 .. _Media formats supported by the HTML audio and video elements: https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats#MP4_H.264_(AAC_or_MP3)
 
@@ -587,7 +619,7 @@
 
 .. _Open edX Release Notes: http://edx.readthedocs.io/projects/open-edx-release-notes/en/latest/ironwood.html
 
-.. _Password Policy: https://github.com/edx/edx-platform/wiki/Optional-Password-Policy-Enforcement
+.. _Password Policy: https://github.com/openedx/edx-platform/wiki/Optional-Password-Policy-Enforcement
 
 .. _Taking Timed and Proctored Exams: https://support.edx.org/hc/en-us/sections/115004169247
 
@@ -597,15 +629,14 @@
 
 .. _Checking Your Onboarding Status and Resetting Your Onboarding Exam: https://support.edx.org/hc/en-us/articles/1500002350902
 
-.. _XQueue: https://github.com/edx/xqueue
+.. _XQueue: https://github.com/openedx/xqueue
 
-.. _edX XQueue repository: https://github.com/edx/xqueue/blob/master/queue
+.. _edX XQueue repository: https://github.com/openedx/xqueue/blob/master/queue
 
 .. _GnuPG website: https://www.gnupg.org
 
-.. _xqueue_watcher: https://github.com/edx/xqueue-watcher
+.. _xqueue_watcher: https://github.com/openedx/xqueue-watcher
 
 .. _Stanford Online xqueue_pull_ref: https://github.com/Stanford-Online/xqueue_pull_ref
 
 .. _Mozilla Firefox: https://www.mozilla.org/en-US/firefox/new/
-

@@ -31,7 +31,7 @@ Obtaining a Video Transcript
 
   To obtain a transcript in .srt format, you can work with a transcript
   provider such as `3Play Media`_ or `cielo24`_. 3Play Media and cielo24 offer
-  a discounted rate for edX partners.
+  a discounted rate for edX.org partners.
 
   * If your course is on edx.org and you work with 3Play Media or cielo24, you
     can use integrated video transcripts in Studio to obtain transcripts and
@@ -117,6 +117,10 @@ Obtaining a Video Transcript
        #. In the **API Key** and **API Secret** fields, enter the credentials
           that you received from 3Play Media.
 
+          .. note::
+            edX currently supports 3PlayMedia API **v1** credentials only. Using v3 credentials
+            will result in a failure when attempting to submit a transcription or translation job.
+
        #. Select **Update Settings**.
 
      * If your organization uses cielo24, follow these steps.
@@ -172,8 +176,7 @@ Obtaining a Video Transcript
   your course is on Edge, you cannot use the integrated video transcript
   functionality in Studio. Instead, you send your videos to the transcript
   provider, and the provider sends you the completed transcripts. You later
-  upload the transcripts when you :ref:`create a video component<Add a Video
-  and Transcript>`.
+  upload the transcripts when you :ref:`create a video component <Add a Video>`.
 
   If your course is on Edge, integrated transcript functionality is not
   available even if you work with 3Play Media or cielo24.
@@ -183,7 +186,7 @@ Obtaining a Video Transcript
   When you work with a transcript provider, you send your videos to the
   transcript provider, and the provider sends you the completed transcripts.
   You later upload the transcripts when you :ref:`create a video
-  component<opencoursestaff:Add a Video to a Course>`.
+  component<Adding a Video to a Course>`.
 
 **********************************
 Transcript File Naming Conventions

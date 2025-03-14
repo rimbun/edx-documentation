@@ -4,15 +4,24 @@ import datetime
 import os
 import sys
 import urllib
+from pathlib import Path
 
-import edx_theme
+# What release line is this?  Use "master" for master, and the release name
+# on release branches.  Zebrawood should have "zebrawood".
+release_line = "master"
+
+# The slug that is used by ReadTheDocs for this version of the projects.
+project_version = "latest" if (release_line == "master") else f"open-release-{release_line}.master"
 
 # on_rtd is whether we are on readthedocs.io, this line of code grabbed from docs.readthedocs.io
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 
 # OK, this is gross: I don't know of a way to find out what builder is running,
 # so let's examine the command line, and take the word after -b.
-the_builder = sys.argv[sys.argv.index("-b") + 1]
+try:
+    the_builder = sys.argv[sys.argv.index("-b") + 1]
+except ValueError:
+    the_builder = None
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -28,7 +37,6 @@ pygments_style = 'sphinx'
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = [
-    'edx_theme',
     'sphinx.ext.autodoc',
     'sphinx.ext.doctest',
     'sphinx.ext.intersphinx',
@@ -36,7 +44,9 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
     'sphinx.ext.extlinks',
-    'sphinx.ext.graphviz'
+    'sphinx.ext.graphviz',
+    'sphinx_reredirects',
+    'notfound.extension',
 ]
 
 # The suffix of source filenames.
@@ -57,14 +67,46 @@ if on_rtd:
     html_context["github_base_account"] = 'edx'
     html_context["github_project"] = 'edx-documentation'
 
-html_theme = 'edx_theme'
+html_theme = 'sphinx_book_theme'
+path_to_docs = '/'.join(Path.cwd().parts[-3:])
 
-html_theme_path = [edx_theme.get_html_theme_path()]
-
-html_theme_options = {}
+# html_theme_path = []
+html_theme_options = {
+    "repository_url": "https://github.com/openedx/edx-documentation",
+    "repository_branch": "master",
+    "path_to_docs": path_to_docs,
+    "home_page_in_toc": True,
+    "use_repository_button": True,
+    "use_issues_button": True,
+    "use_edit_page_button": True,
+    "navigation_with_keys": False,
+    # Please don't change unless you know what you're doing.
+    "extra_footer": """
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    """
+}
 html_theme_options['navigation_depth'] = 3
 
-html_favicon = os.path.join(edx_theme.get_html_theme_path(), 'edx_theme', 'static', 'css', 'favicon.ico')
+html_logo = "https://logos.openedx.org/open-edx-logo-color.png"
+html_favicon = "https://logos.openedx.org/open-edx-favicon.ico"
 
 # Help and Feedback links.  These are customized for the category and audience
 # of the book.  Add a line to the book's conf.py like this:
@@ -75,6 +117,7 @@ html_favicon = os.path.join(edx_theme.get_html_theme_path(), 'edx_theme', 'stati
 # Categories
 PARTNER = object()
 OPENEDX = object()
+EDX = object()
 
 # Audiences
 COURSE_TEAMS = object()
@@ -96,7 +139,7 @@ HELP_LINKS = {
         'help_link_text': "Get Help",
     },
     (PARTNER, DEVELOPERS): {
-        'help_url': "https://open.edx.org/getting-help",
+        'help_url': "https://openedx.org/community/connect/",
         'help_link_text': "Get Help",
     },
     (OPENEDX, LEARNERS): {
@@ -104,13 +147,17 @@ HELP_LINKS = {
         'help_link_text': None,
     },
     (OPENEDX, COURSE_TEAMS): {
-        'help_url': "https://open.edx.org/getting-help",
+        'help_url': "https://openedx.org/community/connect/",
         'help_link_text': "Get Help",
     },
     (OPENEDX, DEVELOPERS): {
-        'help_url': "https://open.edx.org/getting-help",
+        'help_url': "https://openedx.org/community/connect/",
         'help_link_text': "Get Help",
     },
+    (EDX, LEARNERS): {
+        'help_url': "https://help.edx.org",
+        'help_link_text': "Get Help",
+    }
 }
 
 # Defaults for the help links.
@@ -126,20 +173,11 @@ def set_audience(category, audience):
     if help_data:
         html_context.update(help_data)
 
-FEEDBACK_FORM_FMT = "https://docs.google.com/forms/d/1T5QGnYb_QnQoMO7T_eatq02miPTY40WVe3cgGphNAdY/viewform?entry.1952574704&entry.241692674={pageid}"
-
-def feedback_form_url(project, page):
-    """Create a URL for feedback on a particular page in a project."""
-    return FEEDBACK_FORM_FMT.format(pageid=urllib.quote("{}: {}".format(project, page)))
-
-# We want the feedback_form_url function available in HTML templates, but it
-# makes html_context un-JSON-able, so don't add it if we are doing JSON.
-if the_builder != "json":
-    html_context['feedback_form_url'] = feedback_form_url
-
 # General information about the project.
 
-copyright = '{year}, edX Inc.'.format(year=datetime.datetime.now().year)
+print(html_context)
+
+copyright = '{year}, The Axim Collaborative'.format(year=datetime.datetime.now().year)
 
 # Intersphinx manages the connections between books.
 # Normally the references in a book are downloaded from readthedocs.  But you
@@ -152,10 +190,17 @@ copyright = '{year}, edX Inc.'.format(year=datetime.datetime.now().year)
 # We often use the same directory to build two books (edX vs Open edX).  In
 # those cases, only use ism_location for one book, not both, or we'll be
 # looking for A's references in an index built for B.
+#
+# openedx_rtd_url is for books that are branched and built for specific Open
+# edX releases.  edx_rtd_url is for books that are not.
 
 def edx_rtd_url(slug):
-    """Use this with the readthedoc project slug to create the full URL."""
+    """Make a RTD URL for a book that doesn't branch for each release."""
     return f"https://edx.readthedocs.io/projects/{slug}/en/latest/"
+
+def openedx_rtd_url(slug):
+    """Make a RTD URL for a book that branches for each release."""
+    return f"https://edx.readthedocs.io/projects/{slug}/en/{project_version}/"
 
 def ism_location(dir_name):
     """Calculate the intersphinx_mapping location to use for a book.
@@ -170,26 +215,34 @@ def ism_location(dir_name):
         return None
 
 intersphinx_mapping = {
-    "opencoursestaff" : (edx_rtd_url("open-edx-building-and-running-a-course"), None),
+    "opencoursestaff" : ("https://docs.openedx.org/en/latest/", None),
     "data" : (edx_rtd_url("devdata"), ism_location("data")),
     "partnercoursestaff": (edx_rtd_url("edx-partner-course-staff"), ism_location("course_authors")),
     "insights" : (edx_rtd_url("edx-insights"), None),
-    "xblockapi" : (edx_rtd_url("xblock"), None),
-    "xblocktutorial" : (edx_rtd_url("xblock-tutorial"), ism_location("xblock-tutorial")),
-    "installation" : (edx_rtd_url("edx-installing-configuring-and-running"), ism_location("install_operations")),
-    "olx" : (edx_rtd_url("edx-open-learning-xml"), ism_location("olx")),
-    "learners" : (edx_rtd_url("edx-guide-for-students"), None),
-    "openlearners" : (edx_rtd_url("open-edx-learner-guide"), None),
-    "opendevelopers" : (edx_rtd_url("edx-developer-guide"), None),
+    "xblockapi" : ("https://docs.openedx.org/projects/xblock/en/latest/", None),
+    "xblocktutorial" : ("https://docs.openedx.org/projects/xblock/en/latest/", None),
+    "installation" : ("https://docs.openedx.org/en/latest/", None),
+    "olx" : ("https://docs.openedx.org/en/latest/", None),
+    "learners" : ("", ism_location("students_redirect")),
+    "openlearners" : (openedx_rtd_url("open-edx-learner-guide"), ism_location("edx_students")),
+    "opendevelopers" : ("https://docs.openedx.org/en/latest/", None),
     "opendataapi" : (edx_rtd_url("edx-data-analytics-api"), None),
-    "openreleasenotes" : (edx_rtd_url("open-edx-release-notes"), None),
-    "partnerreleasenotes": (edx_rtd_url("edx-release-notes"), None),
-    "2014releasenotes" : (edx_rtd_url("edx-2013-2014-release-notes"), None),
-    "retirement" : ("https://user-retirement-guide.readthedocs.io/en/latest/", None),
+    "openreleasenotes" : ("https://docs.openedx.org/en/latest/", None),
+
 }
 
 extlinks = {
     # :jira:`TNL-4904` becomes: <a href='https://openedx.atlassian.net/browse/TNL-4904'>TNL-4904</a>
-    'jira': ('https://openedx.atlassian.net/browse/%s', ''),
+    'jira': ('https://openedx.atlassian.net/browse/%s', 'Jira Issue %s'),
 }
 
+# sphinx-notfound-page
+# https://github.com/readthedocs/sphinx-notfound-page
+notfound_context = {
+    "title": "Page Not Found",
+    "body": """
+<h1>Page Not Found</h1>
+
+<p>Sorry, we couldn't find that page. Try using the search box or visiting <a href="https://docs.openedx.org/en/latest/">docs.openedx.org</a>, our new documentation site.</p>
+""",
+}

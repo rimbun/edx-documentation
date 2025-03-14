@@ -52,11 +52,11 @@ Example Task Topics
 The *Building and Running an edX Course* guide contains these examples of task
 topics.
 
-* :ref:`installation:Enable the Third Party Authentication Feature` task
+* :ref:`Enable the Third Party Authentication Feature` task
   presents a procedure that has just two steps.
 
 * :ref:`data:Decrypt an Encrypted File` is a task that includes alternate
   procedures for Windows and Macintosh users and shows an illustration of the
   result of the task.
 
-.. * :ref:`opencoursestaff:Add a Post` is one of a series of task topics.
+.. * :ref:`Add a Post` is one of a series of task topics.

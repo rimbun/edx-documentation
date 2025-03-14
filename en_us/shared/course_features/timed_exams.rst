@@ -89,7 +89,7 @@ steps.
     If the **Settings** dialog box does not contain the **Advanced** tab, timed
     exams might not be enabled for your Open edX site. Enabling timed exams for
     an Open edX site is a task that is usually performed by a system
-    administrator. For more information, see :ref:`installation:Enable Timed
+    administrator. For more information, see :ref:`Enable Timed
     Exams` in *Installing, Configuring, and Running the Open edX Platform*.
 
 #. In the **Set as a Special Exam** section, select **Timed**.
@@ -117,7 +117,7 @@ Grant Learners More Time for a Timed or Proctored Exam
   For more information about the grace period setting, see :ref:`Set the Grace
   Period`.
 
-From the instructor dashboard, a course team member can grant a learner
+From the instructor dashboard, a course team member can grant learners
 extra time to complete a timed or proctored exam.
 
 #. View the live version of your course.
@@ -130,19 +130,25 @@ extra time to complete a timed or proctored exam.
 
    The **Add a New Allowance** dialog box opens.
 
-#. For **Special Exam**, select the subsection that contains the timed or
-   proctored exam.
+#. For **Username** or **Email**, enter all the learners' emails/usernames seperated by a comma that you wish to add an exception for.
 
-#. For **Allowance Type**, select **Additional Time (minutes)**.
+#. For **Select Exam Type**, select the type of exams you want to add extra time for, either proctored or timed exams.
 
-#. In the **Additional Time** field, enter the number of extra minutes that you
+#. For **Select Exams**, click on the desired exams you want extra time for.
+
+#. For **Allowance Type**, select either **Additional Time** or **Time Multiplier**
+
+#. If you selected **Additional Time**, enter the number of extra minutes that you
    want to grant to the learner.
 
    .. note:: You must enter a whole number greater than 0.
 
-#. For **Username** or **Email**, enter the learner's information.
+#. Otherwise if you selected **Time Multiplier**, enter the multiplier for how much total time you want the learners to have.
+For example for an exam of 30 minutes, a multiplier of 1.5 will give 15 extra minutes to each learner.
 
-#. Select **Save**.
+   .. note:: You must enter a number greater than 1.
+
+#. Select **Create Allowance**.
 
 For proctored exams, the reviewer takes the special allowance for extra time
 into account when the proctoring service reviews the learner’s proctored exam

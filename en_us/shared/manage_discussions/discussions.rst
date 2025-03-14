@@ -1,13 +1,12 @@
 .. _Discussions:
 
-##################################
 Creating Course Discussions
-##################################
+###########################
 
 Discussions in an edX course include both course-wide topics of interest to
 all learners (such as "Feedback", "Troubleshooting", or "Technical Help") as
 well as content-specific topics that you add to course units as discussion
-components. You create both types of discussion topics in Studio.
+components. You can create both types of discussion topics in Studio.
 
 For information about creating discussion topics, see the following sections.
 
@@ -16,17 +15,49 @@ For information about creating discussion topics, see the following sections.
  :depth: 1
 
 
-For information about creating discussions in which learners in a group such as
-a cohort or in a particular enrollment track only interact with posts from other
-learners in the same group, see :ref:`About Divided Discussions`.
+For information about creating discussions in which learners in a group (cohort)
+only interact with posts from other learners in the same group,
+see :ref:`About Divided Discussions`.
 
 For information about running and moderating course discussions, see
 :ref:`Running_discussions` and :ref:`Moderating_discussions`.
 
 
+.. _Configuring Edx Discussions:
+
+Configuring Edx Discussions
+****************************
+
+To open edx discussions configuration page, follow these steps.
+
+1. Open your course in Studio.
+
+2. Select **Content**, then **Pages & Resources**.
+
+3. Click on the gear icon on top-right of **Discussion** tile (as seen below).
+This will take you to the discussions configuration page where you can select
+a discussion provider.
+
+.. image:: ../../../shared/images/Discussion_tile_in_pages_and_resources.png
+  :width: 300
+  :alt: Appearance of Discussion tile in Pages & Resources.
+
+4. Select edx as discussion provider by checking the box on top-right of **edx**
+tile. Click Next.
+
+.. image:: ../../../shared/images/Tile_for_edx_discussion_provider.png
+  :width: 300
+  :alt: Appearance of tile for edx discussion provider in configuration.
+
+5. This is the edx discussions configuration page. All configuration options
+for edx discussions can be found here.
+
+.. image:: ../../../shared/images/edx_discussions_configurations_page.png
+  :width: 300
+  :alt: Appearance of edx discussions configurations page.
+
 .. _Create CourseWide Discussion Topics:
 
-*************************************
 Create Course-Wide Discussion Topics
 *************************************
 
@@ -48,138 +79,127 @@ Discussions in these topics can begin as soon as your course is available.
 
 To create a course-wide discussion topic, follow these steps.
 
-#. Open your course in Studio.
+1. Navigate to edx discussion provider configuration page (see :ref:`Configuring Edx Discussions`).
 
-#. Select **Settings**, then **Advanced Settings**.
+2. Scroll down to **General discussion topics**. You would see a topic named **General**
+already there. This topic cannot be deleted but can be renamed.
 
-#. Scroll down to the **Discussion Topic Mapping** policy key. By default, its
-   value looks like this.
+.. image:: ../../../shared/images/General_discussion_topics_edx_discussions.png
+  :width: 300
+  :alt: A topic named General will already exist in General discussion topics.
 
-   ::
+3. Click on **Add topic** and add a topic name (e.g. "Course Q&A")
 
-     {
-         "General": {
-             "id": "course"
-         }
-     }
+.. image:: ../../../shared/images/Add_general_topic_name_edx_discussions.png
+  :width: 300
+  :alt: Adding general topic name.
 
-4. Copy the three lines provided for the "General" topic and paste
-   them above the closing brace character (``}``).
-
-
-   ::
-
-     {
-         "General": {
-             "id": "course"
-         }
-         "General": {
-             "id": "course"
-         }
-     }
-
-
-5. Replace the second "General" with the quoted name of your new topic. For
-   example, name the new topic "Questions about the Course".
-
-   ::
-
-     {
-        "General": {
-            "id": "course"
-        }
-        "Questions about the Course": {
-             "id": "course"
-        }
-     }
-
-6. Change the value for the second "id" to a unique identifier. For example,
-   append a reference to the name of the topic.
-
-   ::
-
-     {
-        "General": {
-            "id": "course"
-        }
-        "Questions about the Course": {
-             "id": "course_q"
-        }
-     }
-
-   .. note:: In discussion topic IDs, you can use only alphanumeric characters
-     and these special characters: underscore, hyphen, and period.
-
-7. Add a comma after the first closing brace (``},``).
-
-   ::
-
-     {
-        "General": {
-            "id": "course"
-        },
-        "Questions about the Course": {
-             "id": "course_q"
-        }
-     }
-
-#. Select **Save Changes**.
-
-   Studio checks the syntax of your entry and reformats your entry to add line
-   feeds and indentation.
-
-#. Scroll back to the **Discussion Topic Mapping** field to verify that your
-   entry was saved as you expect. Entries that do not contain all of the
-   required punctuation characters revert to the previous value when you save,
-   and no warning is presented.
+4. Click Save.
 
 When learners select the **Discussion** page for your course, the drop-down
 Discussion list now includes the topic you added.
 
- .. image:: ../../../shared/images/NewCategory_Discussion.png
+.. image:: ../../../shared/images/New_general_discussion_topic.png
   :width: 300
   :alt: A new topic named Course Q&A in the list of discussion topics.
-
-
-.. note:: To make a particular course-wide discussion topic the default topic
-   when learners add new posts on the **Discussion** page, add a "default"
-   attribute with a value of ``true`` to the topic's definition.
-
-   ::
-
-     {
-        "General": {
-            "id": "course"
-        },
-        "Questions about the Course": {
-            "id": "course_q",
-            "default": true
-        }
-     }
-
 
 .. note:: In courses that use cohorts, the course-wide discussion topics that
    you add are unified. All posts can be read and responded to by every
    learner, regardless of the cohort that they belong to. You can optionally
    configure these topics to be divided by cohort. For more information, see
-   :ref:`Specify Which Course Wide Discussion Topics are Divided`.
+   :ref:`Divide Course Wide Discussion Topics`.
 
 
 .. _Create ContentSpecific Discussion Topics:
 
-*********************************************
 Create Content-Specific Discussion Topics
 *********************************************
+
+Course runs created on or after May 16, 2023, use an upgraded version of
+the edX discussion forum. Learn more about it `here`_. The creation of content-specific discussion topics for both the legacy and the upgraded versions
+of the discussion forums are explained separately in the sections below.
+
+.. _here: https://openedx.atlassian.net/wiki/spaces/COMM/pages/3470655498/Discussions+upgrade+Sidebar+and+new+topic+structure.
+
+Upgraded Edx Forum
+==================
+
+Discussion can be enabled for a course unit, which is equivalent to adding
+a content-specific discussion topic in that unit in the legacy version of
+the forum. To enable discussion on a course unit:
+
+1. Open unit’s configuration in Studio.
+
+2. Check the **Enable discussion** checkbox.
+
+.. image:: ../../../shared/images/enable-discussion.png
+  :width: 700
+  :align: center
+  :alt: Toggle switches for anonymous posts in edx discussions configuration.
+
+3. Click **Save**.
+
+Discussions will be enabled on the unit within 1 minute. Units that have
+discussions enabled for them will show a **Discussion enabled** label in Studio.
+
+.. image:: ../../../shared/images/discussion-enabled.png
+  :width: 700
+  :align: center
+  :alt: Toggle switches for anonymous posts in edx discussions configuration.
+
+.. note:: To enable discussion for units in subsections marked as graded (but
+  not **Timed Exams**), first enable the **Enable discussions on units in graded
+  subsusections** toggle on discussion configuration page in studio (see :ref:`Configuring Edx Discussions`).
+
+.. note:: Discussions can not be enabled for units belonging to subsections marked
+  as **Timed Exams**.
+
+Users can participate in these discussions using the **Discussion** tab or via the
+discussion sidebar visible alongside the course unit.
+
+.. image:: ../../../shared/images/discussion-sidebar.png
+  :width: 300
+  :align: center
+  :alt: Toggle switches for anonymous posts in edx discussions configuration.
+
+To disable discussion for a unit, uncheck the **Discussion enabled** checkbox in the
+unit’s configuration and click **Save**.
+
+If the discussion topic for this unit contains at least 1 discussion thread, it
+will appear under the **Archived** section in the **Topics** tab in the **Discussion**
+tab. Otherwise it will be deleted.
+
+If discussion is enabled again for this unit, the archived topic will be restored along
+with the threads contained within it.
+
+.. image:: ../../../shared/images/archived.png
+  :width: 300
+  :height: 400
+  :alt: Toggle switches for anonymous posts in edx discussions configuration.
+
+.. warning:: If **Enable discussions on units in graded subsections** toggle on
+  the discussion configuration page (see :ref:`Configuring Edx Discussions`) is turned
+  off, any discussion topics associated with units belonging to graded subsections
+  will be archived or deleted (if they don’t contain any threads). Enabling the
+  toggle again will restore archived topics and replace deleted topics with new ones.
+
+.. warning:: If a subsection is marked as **Timed Exam**, any discussion topics associated
+  with units belonging to this subsection will be archived or deleted (if they don’t
+  contain any threads). Un-marking the subsection will restore archived topics and
+  replace deleted topics with new ones.
+
+Legacy Edx Forum
+==================
 
 To create a content-specific discussion topic, you add a discussion component
 to a unit. Typically, you do this while you are designing and creating your
 course in Studio. Follow the instructions in :ref:`Working with Discussion
 Components`. The result is a discussion topic associated with a unit and its
 content. Learners can access content-specific topics both in the course unit
-and on the **Discussion** page.
+and on the Discussion page.
 
 .. warning:: Follow the recommended steps to add discussion components. Do not
-   create discussion topics by using the **Duplicate** button in Studio, and do
+   create discussion topics by using the Duplicate button in Studio, and do
    not reference the same discussion ID in more than one place in your course.
    Duplicated discussion components result in discussion topics that contain the
    same conversations, even if learners post in different discussion topics.
@@ -192,29 +212,27 @@ topics, see :ref:`Visibility of Discussion Topics`.
    in the course can see and respond to posts from all other learners. You can
    change content-specific discussion topics to be divided, so that only members
    of the same group can see and respond to each other's posts. For information,
-   see :ref:`Content Specific Discussion Topics and Groups`.
-
+   see :ref:`Divide All Content Specific Discussion Topics`.
 
 .. _Visibility of Discussion Topics:
 
-*********************************************************
 Understanding When Learners Can See Discussion Topics
 *********************************************************
 
 The names that you specify as the category and subcategory names for discussion
-components are not visible on the **Discussion** page in the LMS until after
+components are not visible on the Discussion page in the LMS until after
 the course has started and the unit is released.
 
 However, "seed" posts that you create in content-specific discussion topics
 before a course starts, or before the unit is released, are immediately visible
-on the **Discussion** page, even though the containing category or subcategory
+on the Discussion page, even though the containing category or subcategory
 names are not visible. EdX recommends that you do not create posts in
 content-specific discussion topics before a unit is released. For more
 information about release dates and the visibility of components, see
 :ref:`Controlling Content Visibility`.
 
 In contrast, :ref:`course-wide discussion topics<Create CourseWide Discussion
-Topics>` that you create on the **Advanced Settings** page in Studio,
+Topics>` that you create on the edx discussions configuration page in Studio,
 including the default "General" discussion topic, are immediately visible,
 regardless of whether the course has started. They are not associated with any
 particular section or subsection of the course, and are not subject to
@@ -223,41 +241,40 @@ release dates.
 
 .. _Anonymous_posts:
 
-*****************************************************
 Allowing Learners to Make Anonymous Discussion Posts
 *****************************************************
 
 By default, when learners participate in a discussion, their usernames are
 visible in the discussion. You can allow learners to make discussion posts
-that are anonymous to their peers: their usernames are not visible to other
-learners. Their usernames will still be visible to course staff.
+that are anonymous to other learners i.e. their usernames are not visible
+to other learners.
 
 To allow anonymous discussion posts in your course, follow these steps.
 
-#. In Studio, select **Settings**, then select **Advanced Settings**.
+1. Navigate to edx discussion configuration page
+(see :ref:`Configuring Edx Discussions`).
 
-#. Locate the **Allow Anonymous Discussion Posts to Peers** field. The default
-   value is ``false``.
+2. Toggle the **Allow anonymous discussion posts to peers** to enable learners to
+make posts that are anonymous to everyone other learners.
 
-#. Change the value of the setting to ``true``.
+ .. image:: ../../../shared/images/anonymous-posting.png
+  :width: 400
+  :alt: Toggle switches for anonymous posts in edx discussions configuration.
 
-#. Select **Save Changes**.
+3. Click **Save**.
 
-Learners can now create discussion posts in your course that are anonymous
-to other learners.
+Once the toggle has been enabled, forum users will have the option to create posts
+that are anonymous to other learners, as seen below.
 
-.. note:: The **Advanced Settings** page in Studio includes another field named
-   **Allow Anonymous Discussion Posts**. Setting the value of that field to
-   ``true`` enables learners to create discussion posts that are anonymous to
-   course staff, as well as to other learners. As a best practice, edX
-   recommends that you do not set this field to ``true``.
-
+ .. image:: ../../../shared/images/post-anonymously.png
+  :width: 600
+  :align: center
+  :alt: Options for anonymous posting while creating a post.
 
 .. _Discussions on Mobile Apps:
 
-***************************************
 Discussions in the edX Mobile App
-***************************************
+**********************************
 
 Learners can participate in course discussions using the edX mobile app as
 they do on the edX site, but there are some differences in the actions that

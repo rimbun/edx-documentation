@@ -1,27 +1,10 @@
-.. _Open edX XBlock Tutorial:
-
-#########################
+############################
 Open edX XBlock Tutorial
-#########################
+############################
+
+.. This is a placeholder for redirects to the new docs site.
 
 .. toctree::
-    :numbered:
-    :maxdepth: 2
+   :hidden:
 
-    front_matter/index
-    overview/index
-    getting_started/index
-    anatomy/index
-    customize/index
-    concepts/index
-    edx_platform/index
-    glossary
-
-**********
-Appendices
-**********
-
-.. toctree::
-    :maxdepth: 2
-
-    sdk/index
+   dummy

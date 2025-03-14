@@ -12,7 +12,7 @@ Glossary
 .. note:: Most of the links to documentation provided in this glossary are to
    the :ref:`partnercoursestaff:document index` guide, for edX partners. Many
    of the same topics are available in the Open edX version of this guide,
-   :ref:`opencoursestaff:Building and Running an Open edX Course`.
+   :ref:`Quick Start Build a Course`.
 
 .. _A:
 
@@ -120,14 +120,6 @@ C
 **chapter**
 
   See :ref:`Section<S>`.
-
-.. _Checkbox_g:
-
-**checkbox problem**
-
-  A problem that prompts learners to select one or more options from a list of
-  possible answers. For more information, see
-  :ref:`partnercoursestaff:Checkbox`.
 
 
 .. _Chemical Equation_g:
@@ -553,13 +545,13 @@ H
 
   See :ref:`Course Page`.
 
-.. _HTML Component:
+.. _Text Component:
 
-**HTML component**
+**Text component**
 
   A type of component that you can use to add and format text for your course.
-  An HTML component can contain text, lists, links, and images. For more
-  information, see :ref:`partnercoursestaff:Working with HTML Components`.
+  A Text component can contain text, lists, links, and images. For more
+  information, see :ref:`partnercoursestaff:Working with Text Components`.
 
 
 
@@ -720,12 +712,13 @@ M
   content as children.
 
 
-.. _Multiple Choice_g:
+.. _Multi-select_g:
 
-**multiple choice problem**
+**multi-select problem**
 
-  A problem that asks learners to select one answer from a list of options.
-  For more information, see :ref:`partnercoursestaff:Multiple Choice`.
+  A problem that prompts learners to select one or more options from a list of
+  possible answers. For more information, see
+  :ref:`partnercoursestaff:Multi-select`.
 
 
 .. _N:
@@ -761,7 +754,7 @@ O
   OLX  (open learning XML) is the XML-based markup language that is used to
   build courses on the Open edX platform.
 
-  For more information, see :ref:`olx:What is Open Learning XML?`.
+  For more information, see :ref:`What is Open Learning XML?`.
 
 
 .. _Open Response Assessment_g:
@@ -967,8 +960,7 @@ S
 
 **simple editor**
 
-  The graphical user interface in a problem component that contains a toolbar
-  for adding Markdown formatting to the text you supply. The simple editor is
+  The graphical user interface in a problem component. The simple editor is
   available for some problem types. For more information, see
   :ref:`partnercoursestaff:Problem Studio View`.
 
@@ -980,6 +972,15 @@ S
   authentication, which is a different type of authentication system. For
   information about third party authentication, see
   :ref:`Third Party Authentication<T>`.
+
+
+.. _Single_select_g:
+
+**single select problem**
+
+  A problem that asks learners to select one answer from a list of options.
+  For more information, see :ref:`partnercoursestaff:Single Select`.
+
 
 .. _Special Exam_g:
 
@@ -1043,9 +1044,9 @@ T
 
   For more information about how system administrators can integrate an
   instance of Open edX with a campus or institutional authentication system,
-  see :ref:`installation:Enabling Third Party Authentication`.
+  see :ref:`Enabling Third Party Authentication`.
 
-.. _Transcript:
+.. _Transcript Definition:
 
 **transcript**
 
@@ -1151,7 +1152,7 @@ XYZ
 
   Third parties can create components as web applications that can run within
   the edX learning management system. For more information, see
-  :ref:`xblocktutorial:Open edX XBlock Tutorial`.
+  `the Open edX XBlock Tutorial. <https://docs.openedx.org/projects/xblock/en/latest/xblock-tutorial/index.html>`_
 
 
 **XSeries**

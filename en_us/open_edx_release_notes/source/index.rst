@@ -6,11 +6,18 @@ Open edX Platform Release Notes
 
 The *Open edX Platform Release Notes* provide information about releases, migrations, and other changes and updates to the Open edX platform.
 
+.. This is a placeholder for redirects to the new release notes site.
+   See https://docs.openedx.org/en/latest/community/release_notes/index.html
+
 .. toctree::
     :maxdepth: 2
 
     front_matter/index
     os_documentation
+    named_release_branches_and_tags
+    olive
+    nutmeg
+    maple
     lilac
     koa
     juniper

@@ -21,7 +21,7 @@ features.
 
   You can also configure Open edX so that courses or course outlines are visible 
   to anyone, not just registered and enrolled learners. For information, see 
-  :ref:`installation:Enable Public Course Content`. 
+  :ref:`Enable Public Course Content`. 
 
 
 .. _Release Dates:
@@ -248,6 +248,12 @@ subsection, follow these steps.
     You cannot use :ref:`open response assessments<Open Response Assessments
     Two>` that have a point value of 0 as the prerequisite for other course
     subsections.
+
+.. note::
+    You should not use a subsection that only has :ref:`HTML components<Working 
+    with HTML Components>` as a prerequisite as HTML blocks are not considered 
+    for completion or grading and they will be automtically considered passed 
+    if the student tries to access the subsection with the prerequisite.
 
 #. Enable subsection prerequisites for your course. For more information, see
    :ref:`enabling_subsection_gating`.

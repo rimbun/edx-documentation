@@ -23,4 +23,5 @@ self assessment, and staff assessment.
    OpenResponseAssessments
    CreateORAAssignment
    Manage_ORA_Assignment
+   ORA_Staff_Grading
    Access_ORA_Info

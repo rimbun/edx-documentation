@@ -80,6 +80,12 @@ Who Is Included in Each Recipient Group?
 When you send a bulk email message to one of the preset recipient groups, you
 should be aware of who is included in each group.
 
+.. note:: It is considered good practice to only send messages to active and
+   engaged learners. For this reason, regardless of the recipient groups
+   selected, edX will only send email messages to learners in a course run who
+   have logged in within the last 18 months. This helps reduce the risk of
+   messages being marked as spam (or bouncing) and helps ensure the continued
+   delivery of bulk course email messages through edX's email providers.
 
 .. list-table::
    :widths: 30 40 40
@@ -167,17 +173,33 @@ When you compose an email message, you can use the following options.
 
 .. contents::
   :local:
-  :depth: 1
+  :depth: 2
 
 =======
 Styling
 =======
 
-Messages can include HTML styling, including text formatting and links. The
-email message editor offers the same formatting options as the HTML component
-editor in Studio.
+Messages can include HTML styling, including text formatting and links.
 
-For more information, see :ref:`Working with HTML Components`.
+For more information, see :ref:`Working with Text Components`.
+
+-----------------------
+Restricted HTML Content
+-----------------------
+
+The Bulk Course Email tool restricts use of specific HTML elements from being
+used in messages. The following HTML elements may not be used in messages
+authored with this tool:
+
+* iframe
+* svg
+* form
+* script
+
+.. note: If a message contains restricted HTML content it will **not** be
+   stripped from the message. The HTML code will be converted to plain text. You
+   should send a test message to yourself first before sending to larger groups
+   to ensure message content is displayed as desired.
 
 ======
 Images
@@ -187,6 +209,10 @@ Messages can include images. To include an image, you must first add the file
 to your course on the **Files & Uploads** page. For an email message, you copy
 the **Web** URL that the system assigns to the image. Then, in the email
 message editor, you select the **Insert/edit image** icon to add the web URL.
+
+.. note:: Scalable Vector Graphic (SVG) images are restricted from use in
+   messages authored with the Bulk Course Email tool. Please see the above note
+   in the *Restricted HTML Content* section.
 
 To ensure that your course assets are transmitted securely, add the
 ``https://`` preface to the web URL. An example follows.
@@ -213,7 +239,7 @@ For more information, see :ref:`Use Keywords in Messages`.
 Send an Email Message to Course Participants
 **************************************************
 
-.. Important:: You cannot cancel bulk email messages after you send them.
+.. Important:: You cannot cancel non-scheduled bulk email messages after you send them.
 
    Before you send a message to a wide audience, send the message only to
    yourself to test and review it. Make sure it displays as you intend it to,
@@ -244,6 +270,81 @@ Multiple courses use the same queue to complete these tasks, so it can take
 some time for your message to be sent to all of its recipients. You can
 perform other tasks on the instructor dashboard or navigate to other pages
 while you wait for your message to be sent.
+
+.. _Send_Scheduled_Bulk_Email:
+
+*********************************************************
+Send a Scheduled Email Message to Course Participants
+*********************************************************
+
+We have introduced a way to schedule a bulk email message to be sent at a
+specified date and time in the future. Once a message has been scheduled,
+and until the message has been sent, it will be possible to view, edit, or
+cancel these messages.
+
+.. Important:: Messages may not be sent at the *exact* time specified
+
+   .. note:: We check the message schedules every fifteen minutes. For example,
+      A message scheduled to be sent at 09:10:00 will not be processed until
+      09:15:00. Once the schedule for a message has elapsed it will be sent.
+      When processed, these messages will be placed on the same queue that
+      non-scheduled messages use, so it may take some time for your message to
+      be sent to all recipients.
+
+To send a scheduled email message to course participants, follow these steps.
+
+#. View the live version of your course.
+
+#. Select **Instructor**, and then select **Email**.
+
+#. From the **Send to** option, select one or more groups of email recipients.
+
+   .. note:: Make sure you understand who is included or excluded when you
+      send a message to one, or a combination, of the recipient groups. For
+      details, see :ref:`Bulk Email Who Is Included or Excluded`
+
+#. In the **Subject** field, enter a subject for the message.
+
+#. In the **Message** box, enter the text for the message.
+
+   For details about options for composing your message, including using keywords to make the message more personal, see
+   :ref:`Options for Email Message Text`.
+
+#. Check the **Schedule this email for a future date** checkbox. This also
+   updates the **Send Email** button to a **Schedule Email** button.
+
+#. Enter a date (in the future) within the **Send date** field, or optionally
+   click on the calendar icon to open up a date picker to assist in selecting a
+   date for the message.
+
+#. Enter a time within the **Send time** field, or optionally
+   click on the clock icon to open up a time picker.
+
+#. Select **Schedule Email**. A bulk email task is then scheduled for
+   processing.
+
+=====================================
+Managing Scheduled Email Messages
+=====================================
+
+Once a message has been scheduled it will appear in the **Scheduled emails**
+table. Each entry will describe *when* the message will be sent (in local time),
+the *recipient groups* selected, the *subject* of the message, and the *author*
+of the message.
+
+.. image:: ../../../shared/images/Bulk_email_scheduled_emails_table.png
+       :alt: A tabular list of scheduled email messages, with columns for
+             *send date*, *send to*, *subject*, *author*, and *action*.
+
+Each scheduled email entry in this table will support the following actions:
+
+* The *View* button will open a modal that allows you to view the contents of
+  this message.
+* The *Delete* button will cancel the scheduled bulk email task and the message
+  will **not** be sent. This sets the bulk email task's status to **REVOKED**.
+* The *Edit* button will allow you to edit the bulk email message. You will be
+  able to adjust the recipients, subject, message contents, and/or the date and
+  time the message should be sent.
 
 
 .. _Use Keywords in Messages:
@@ -298,6 +399,10 @@ When you select **Send Email** for a message, the server begins to process a
 bulk email task. The server assigns a series of different workflow states to
 the task.
 
+When you select **Schedule Email** for a message, the server creates a bulk
+email task and sets it to the **SCHEDULED** state. This task will remain in this
+state until it is ready to be processed.
+
 .. image:: ../../../shared/images/Bulk_email_states.png
        :alt: Flowchart of the possible states of a bulk email task.
 
@@ -306,19 +411,22 @@ Bulk email tasks can have the following workflow states.
 * Queuing: The bulk email task is created and being queued for background
   processing.
 * Pending: The task is queued and is waiting to run.
+* Scheduled: The task has been created and is scheduled to run at a future date
+  and time.
 * Started: Background processing is in progress to create emailing subtasks.
 * Progress: The emailing subtasks are in progress.
 * Success: All emailing subtasks are complete. Note that the bulk email task
   can be in this state even if some or all of its emailing subtasks failed.
 * Failure: An error occurred and task processing did not complete successfully.
+* Revoked: The task was cancelled before it was processed.
 
 While the bulk email task is in progress, you can find out what stage it has
 reached in the workflow by checking the **Pending Tasks** section on the
-**Email** page.
+**Course Info** page of the Instructor Dashboard.
 
 .. image:: ../../../shared/images/Bulk_email_pending.png
       :alt: Information about an email message, including who submitted it
-             and when, in tabular format
+            and when, in tabular format
 
 When the bulk email task is complete, you can find its final state by checking
 the Email Task History report. For more information, see :ref:`Email Task
@@ -394,8 +502,8 @@ To produce the Email Task History report, follow these steps.
 
 .. image:: ../../../shared/images/Bulk_email_history.png
        :alt: A tabular report with a row for each message sent and columns for
-        requester, date and time submitted, duration, state, task status, and
-        task progress.
+             requester, date and time submitted, duration, state, task status,
+             and task progress.
 
 ===========================
 Review Email Task History

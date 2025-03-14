@@ -70,9 +70,15 @@ D, E, F
      - :ref:`bookmark_events`
    * - ``edx.certificate.created``
      - :ref:`certificate_events`
+   * - ``edx.certificate.generation.disabled``
+     - :ref:`certificate_events`
+   * - ``edx.certificate.generation.enabled``
+     - :ref:`certificate_events`
    * - ``edx.certificate.shared``
      - :ref:`certificate_events`
    * - ``edx.certificate.evidence_visited``
+     - :ref:`certificate_events`
+   * - ``edx.certificate.revoked``
      - :ref:`certificate_events`
    * - ``edx.cohort.created``
      - :ref:`student_cohort_events`
